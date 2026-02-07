@@ -1,5 +1,5 @@
 -- SETTING KEY DI SINI
-local MY_KEY = "GANKUNZ-V3" 
+local MY_KEY = "GanTest" 
 
 local Workspace = game:GetService("Workspace")
 local UIS = game:GetService("UserInputService")
