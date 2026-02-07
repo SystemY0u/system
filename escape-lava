@@ -1,0 +1,119 @@
+local Workspace = game:GetService("Workspace")
+local UIS = game:GetService("UserInputService")
+local CoreGui = game:GetService("CoreGui")
+local WaitForChild = game.Players.LocalPlayer:WaitForChild("PlayerGui")
+local ScreenGui = Instance.new("ScreenGui")
+ScreenGui.Parent = CoreGui
+local Frame = Instance.new("Frame")
+Frame.Size = UDim2.new(0, 300, 0, 200)
+Frame.Position = UDim2.new(0.5, -150, 0.5, -100)
+Frame.BackgroundColor3 = Color3.fromRGB(15, 15, 15)
+Frame.Parent = ScreenGui
+local UICorner = Instance.new("UICorner", Frame)
+local conn = Frame.InputBegan:Connect(function(input, gameProcessed)
+end)
+local conn2 = Frame.InputChanged:Connect(function(input, gameProcessed)
+end)
+local conn3 = UIS.InputChanged:Connect(function(input, gameProcessed)
+end)
+local conn4 = UIS.InputEnded:Connect(function(input, gameProcessed)
+end)
+local TextBox = Instance.new("TextBox", Frame)
+TextBox.Size = UDim2.new(0.8, 0, 0, 45)
+TextBox.Position = UDim2.new(0.1, 0, 0.35, 0)
+TextBox.PlaceholderText = "Enter Key..."
+TextBox.BackgroundColor3 = Color3.fromRGB(25, 25, 25)
+TextBox.TextColor3 = Color3.new(1, 1, 1)
+local UICorner2 = Instance.new("UICorner", TextBox)
+local TextButton = Instance.new("TextButton", Frame)
+TextButton.Size = UDim2.new(0.8, 0, 0, 45)
+TextButton.Position = UDim2.new(0.1, 0, 0.65, 0)
+TextButton.Text = "LOGIN"
+TextButton.BackgroundColor3 = Color3.fromRGB(255, 0, 0)
+TextButton.TextColor3 = Color3.new(1, 1, 1)
+local UICorner3 = Instance.new("UICorner", TextButton)
+local ScreenGui2 = Instance.new("ScreenGui")
+ScreenGui2.Enabled = false
+ScreenGui2.Parent = CoreGui
+local Frame2 = Instance.new("Frame")
+Frame2.Size = UDim2.new(0, 230, 0, 340)
+Frame2.Position = UDim2.new(0.3, 0, 0.3, 0)
+Frame2.BackgroundColor3 = Color3.fromRGB(10, 10, 10)
+Frame2.Parent = ScreenGui2
+local UICorner4 = Instance.new("UICorner", Frame2)
+local conn5 = Frame2.InputBegan:Connect(function(input, gameProcessed)
+end)
+local conn6 = Frame2.InputChanged:Connect(function(input, gameProcessed)
+end)
+local conn7 = UIS.InputChanged:Connect(function(input, gameProcessed)
+end)
+local conn8 = UIS.InputEnded:Connect(function(input, gameProcessed)
+end)
+local UIStroke = Instance.new("UIStroke", Frame2)
+UIStroke.Color = Color3.fromRGB(0, 255, 150)
+local TextLabel = Instance.new("TextLabel", Frame2)
+TextLabel.Size = UDim2.new(1, 0, 0, 50)
+TextLabel.Text = "BRAINROTS V3 BY GANKUNZ"
+TextLabel.TextColor3 = Color3.new(1, 1, 1)
+TextLabel.Font = Enum.Font.GothamBold
+TextLabel.BackgroundTransparency = 1
+local TextButton2 = Instance.new("TextButton", Frame2)
+TextButton2.Size = UDim2.new(0.85, 0, 0, 50)
+TextButton2.Position = UDim2.new(0.075, 0, 0.18, 0)
+TextButton2.Text = "TP TO CELESTIAL"
+TextButton2.BackgroundColor3 = Color3.fromRGB(150, 0, 255)
+TextButton2.TextColor3 = Color3.new(1, 1, 1)
+TextButton2.Font = Enum.Font.GothamBold
+local UICorner5 = Instance.new("UICorner", TextButton2)
+local conn9 = TextButton2.MouseButton1Click:Connect(function()
+    local FindFirstChild = game.Players.LocalPlayer.Character:FindFirstChild("HumanoidRootPart")
+    local Brainrots = Workspace:FindFirstChild("Brainrots", true)
+    local Celestial = Brainrots:FindFirstChild("Celestial", true)
+    local BasePart = Celestial:FindFirstChildWhichIsA("BasePart")
+    local GetModelCFrame = BasePart:GetModelCFrame()
+    FindFirstChild.CFrame = GetModelCFrame
+end)
+local TextButton3 = Instance.new("TextButton", Frame2)
+TextButton3.Size = UDim2.new(0.85, 0, 0, 50)
+TextButton3.Position = UDim2.new(0.075, 0, 0.38, 0)
+TextButton3.Text = "TP TO SECRET"
+TextButton3.BackgroundColor3 = Color3.fromRGB(0, 180, 100)
+TextButton3.TextColor3 = Color3.new(1, 1, 1)
+TextButton3.Font = Enum.Font.GothamBold
+local UICorner6 = Instance.new("UICorner", TextButton3)
+local conn10 = TextButton3.MouseButton1Click:Connect(function()
+    local FindFirstChild2 = game.Players.LocalPlayer.Character:FindFirstChild("HumanoidRootPart")
+    local Brainrots2 = Workspace:FindFirstChild("Brainrots", true)
+    local Secret = Brainrots2:FindFirstChild("Secret", true)
+    local BasePart2 = Secret:FindFirstChildWhichIsA("BasePart")
+    local GetModelCFrame2 = BasePart2:GetModelCFrame()
+    FindFirstChild2.CFrame = GetModelCFrame2
+end)
+local TextButton4 = Instance.new("TextButton", Frame2)
+TextButton4.Size = UDim2.new(0.85, 0, 0, 50)
+TextButton4.Position = UDim2.new(0.075, 0, 0.58, 0)
+TextButton4.Text = "BACK TO BASEPLATE"
+TextButton4.BackgroundColor3 = Color3.fromRGB(200, 100, 0)
+TextButton4.TextColor3 = Color3.new(1, 1, 1)
+TextButton4.Font = Enum.Font.GothamBold
+local UICorner7 = Instance.new("UICorner", TextButton4)
+local conn11 = TextButton4.MouseButton1Click:Connect(function()
+    local FindFirstChild3 = game.Players.LocalPlayer.Character:FindFirstChild("HumanoidRootPart")
+    local Baseplate = Workspace:FindFirstChild("Baseplate", true)
+    FindFirstChild3.CFrame = (CFrame.new(0, 5, 0) + Vector3.new(0, 5, 0))
+end)
+local TextButton5 = Instance.new("TextButton", Frame2)
+TextButton5.Size = UDim2.new(0.85, 0, 0, 50)
+TextButton5.Position = UDim2.new(0.075, 0, 0.78, 0)
+TextButton5.Text = "BYPASS VIP"
+TextButton5.BackgroundColor3 = Color3.fromRGB(40, 40, 40)
+TextButton5.TextColor3 = Color3.new(1, 1, 1)
+local UICorner8 = Instance.new("UICorner", TextButton5)
+local conn12 = TextButton5.MouseButton1Click:Connect(function()
+    for _, obj in Workspace:GetDescendants() do
+        TextButton5.Text = "UNLOCKED"
+    end)
+    local conn13 = TextButton.MouseButton1Click:Connect(function()
+        TextBox.PlaceholderText = "WRONG KEY!"
+        TextBox.Text = ""
+    end)
