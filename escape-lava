@@ -1,10 +1,15 @@
+-- SETTING KEY DI SINI
+local MY_KEY = "GANKUNZ-V3" 
+
 local Workspace = game:GetService("Workspace")
 local UIS = game:GetService("UserInputService")
 local CoreGui = game:GetService("CoreGui")
 local Players = game:GetService("Players")
 local LocalPlayer = Players.LocalPlayer
 
+-- GUI LOGIN
 local ScreenGui = Instance.new("ScreenGui")
+ScreenGui.Name = "LoginSystem"
 ScreenGui.Parent = CoreGui
 
 local Frame = Instance.new("Frame")
@@ -12,16 +17,16 @@ Frame.Size = UDim2.new(0, 300, 0, 200)
 Frame.Position = UDim2.new(0.5, -150, 0.5, -100)
 Frame.BackgroundColor3 = Color3.fromRGB(15, 15, 15)
 Frame.Parent = ScreenGui
-local UICorner = Instance.new("UICorner", Frame)
+Instance.new("UICorner", Frame)
 
--- TextBox & Login Button
 local TextBox = Instance.new("TextBox", Frame)
 TextBox.Size = UDim2.new(0.8, 0, 0, 45)
 TextBox.Position = UDim2.new(0.1, 0, 0.35, 0)
 TextBox.PlaceholderText = "Enter Key..."
+TextBox.Text = ""
 TextBox.BackgroundColor3 = Color3.fromRGB(25, 25, 25)
 TextBox.TextColor3 = Color3.new(1, 1, 1)
-local UICorner2 = Instance.new("UICorner", TextBox)
+Instance.new("UICorner", TextBox)
 
 local TextButton = Instance.new("TextButton", Frame)
 TextButton.Size = UDim2.new(0.8, 0, 0, 45)
@@ -29,10 +34,11 @@ TextButton.Position = UDim2.new(0.1, 0, 0.65, 0)
 TextButton.Text = "LOGIN"
 TextButton.BackgroundColor3 = Color3.fromRGB(255, 0, 0)
 TextButton.TextColor3 = Color3.new(1, 1, 1)
-local UICorner3 = Instance.new("UICorner", TextButton)
+Instance.new("UICorner", TextButton)
 
--- Main Menu
+-- GUI MENU UTAMA (Awalnya Tersembunyi)
 local ScreenGui2 = Instance.new("ScreenGui")
+ScreenGui2.Name = "MainMenu"
 ScreenGui2.Enabled = false
 ScreenGui2.Parent = CoreGui
 
@@ -40,99 +46,59 @@ local Frame2 = Instance.new("Frame")
 Frame2.Size = UDim2.new(0, 230, 0, 340)
 Frame2.Position = UDim2.new(0.3, 0, 0.3, 0)
 Frame2.BackgroundColor3 = Color3.fromRGB(10, 10, 10)
+Frame2.Active = true
+Frame2.Draggable = true -- Biar bisa digeser
 Frame2.Parent = ScreenGui2
-local UICorner4 = Instance.new("UICorner", Frame2)
+Instance.new("UICorner", Frame2)
 local UIStroke = Instance.new("UIStroke", Frame2)
 UIStroke.Color = Color3.fromRGB(0, 255, 150)
 
+-- (Bagian Tombol TP tetap sama seperti sebelumnya)
 local TextLabel = Instance.new("TextLabel", Frame2)
 TextLabel.Size = UDim2.new(1, 0, 0, 50)
-TextLabel.Text = "BRAINROTS V3 BY GANKUNZ"
+TextLabel.Text = "BRAINROTS V3"
 TextLabel.TextColor3 = Color3.new(1, 1, 1)
-TextLabel.Font = Enum.Font.GothamBold
 TextLabel.BackgroundTransparency = 1
+TextLabel.Parent = Frame2
 
--- FITUR TP CELESTIAL
-local TextButton2 = Instance.new("TextButton", Frame2)
-TextButton2.Size = UDim2.new(0.85, 0, 0, 50)
-TextButton2.Position = UDim2.new(0.075, 0, 0.18, 0)
-TextButton2.Text = "TP TO CELESTIAL"
-TextButton2.BackgroundColor3 = Color3.fromRGB(150, 0, 255)
-TextButton2.TextColor3 = Color3.new(1, 1, 1)
-TextButton2.Font = Enum.Font.GothamBold
-Instance.new("UICorner", TextButton2)
+local function createButton(txt, pos, color, action)
+    local btn = Instance.new("TextButton", Frame2)
+    btn.Size = UDim2.new(0.85, 0, 0, 50)
+    btn.Position = pos
+    btn.Text = txt
+    btn.BackgroundColor3 = color
+    btn.TextColor3 = Color3.new(1, 1, 1)
+    Instance.new("UICorner", btn)
+    btn.MouseButton1Click:Connect(action)
+end
 
-TextButton2.MouseButton1Click:Connect(function()
+-- Teleport Celestial
+createButton("TP TO CELESTIAL", UDim2.new(0.075, 0, 0.18, 0), Color3.fromRGB(150, 0, 255), function()
     local Char = LocalPlayer.Character
-    if Char and Char:FindFirstChild("HumanoidRootPart") then
-        local Brainrots = Workspace:FindFirstChild("Brainrots", true)
-        local Celestial = Brainrots and Brainrots:FindFirstChild("Celestial", true)
-        if Celestial then
-            local Part = Celestial:IsA("BasePart") and Celestial or Celestial:FindFirstChildWhichIsA("BasePart", true)
-            if Part then
-                Char.HumanoidRootPart.CFrame = Part.CFrame
-            end
-        end
+    local Target = Workspace:FindFirstChild("Celestial", true)
+    if Char and Target and Target:IsA("BasePart") then
+        Char.HumanoidRootPart.CFrame = Target.CFrame
     end
 end)
 
--- FITUR TP SECRET
-local TextButton3 = Instance.new("TextButton", Frame2)
-TextButton3.Size = UDim2.new(0.85, 0, 0, 50)
-TextButton3.Position = UDim2.new(0.075, 0, 0.38, 0)
-TextButton3.Text = "TP TO SECRET"
-TextButton3.BackgroundColor3 = Color3.fromRGB(0, 180, 100)
-TextButton3.TextColor3 = Color3.new(1, 1, 1)
-TextButton3.Font = Enum.Font.GothamBold
-Instance.new("UICorner", TextButton3)
-
-TextButton3.MouseButton1Click:Connect(function()
+-- Teleport Secret
+createButton("TP TO SECRET", UDim2.new(0.075, 0, 0.38, 0), Color3.fromRGB(0, 180, 100), function()
     local Char = LocalPlayer.Character
-    if Char and Char:FindFirstChild("HumanoidRootPart") then
-        local Brainrots = Workspace:FindFirstChild("Brainrots", true)
-        local Secret = Brainrots and Brainrots:FindFirstChild("Secret", true)
-        if Secret then
-            local Part = Secret:IsA("BasePart") and Secret or Secret:FindFirstChildWhichIsA("BasePart", true)
-            if Part then
-                Char.HumanoidRootPart.CFrame = Part.CFrame
-            end
-        end
+    local Target = Workspace:FindFirstChild("Secret", true)
+    if Char and Target and Target:IsA("BasePart") then
+        Char.HumanoidRootPart.CFrame = Target.CFrame
     end
 end)
 
--- FITUR BACK TO BASE
-local TextButton4 = Instance.new("TextButton", Frame2)
-TextButton4.Size = UDim2.new(0.85, 0, 0, 50)
-TextButton4.Position = UDim2.new(0.075, 0, 0.58, 0)
-TextButton4.Text = "BACK TO BASEPLATE"
-TextButton4.BackgroundColor3 = Color3.fromRGB(200, 100, 0)
-TextButton4.TextColor3 = Color3.new(1, 1, 1)
-TextButton4.Font = Enum.Font.GothamBold
-Instance.new("UICorner", TextButton4)
-
-TextButton4.MouseButton1Click:Connect(function()
-    local Char = LocalPlayer.Character
-    if Char and Char:FindFirstChild("HumanoidRootPart") then
-        Char.HumanoidRootPart.CFrame = CFrame.new(0, 10, 0)
-    end
-end)
-
--- FITUR BYPASS VIP (Visual Only)
-local TextButton5 = Instance.new("TextButton", Frame2)
-TextButton5.Size = UDim2.new(0.85, 0, 0, 50)
-TextButton5.Position = UDim2.new(0.075, 0, 0.78, 0)
-TextButton5.Text = "BYPASS VIP"
-TextButton5.BackgroundColor3 = Color3.fromRGB(40, 40, 40)
-TextButton5.TextColor3 = Color3.new(1, 1, 1)
-Instance.new("UICorner", TextButton5)
-
-TextButton5.MouseButton1Click:Connect(function()
-    TextButton5.Text = "UNLOCKED"
-end)
-
--- LOGIN CLICK ACTION
+-- LOGIC LOGIN
 TextButton.MouseButton1Click:Connect(function()
-    -- Masukkan logic key di sini jika ada, sementara ini diset salah terus sesuai script asal
-    TextBox.PlaceholderText = "WRONG KEY!"
-    TextBox.Text = ""
+    if TextBox.Text == MY_KEY then
+        ScreenGui:Destroy() -- Hapus menu login
+        ScreenGui2.Enabled = true -- Munculkan menu cheat
+    else
+        TextBox.Text = ""
+        TextBox.PlaceholderText = "KEY SALAH!"
+        task.wait(1)
+        TextBox.PlaceholderText = "Enter Key..."
+    end
 end)
