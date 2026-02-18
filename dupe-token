@@ -1,0 +1,115 @@
+local TweenService = game:GetService("TweenService")
+local Players = game:GetService("Players")
+local Player = Players.LocalPlayer
+
+-- UI INIT
+local ScreenGui = Instance.new("ScreenGui")
+ScreenGui.Name = "GanLoader"
+ScreenGui.ResetOnSpawn = false
+ScreenGui.ZIndexBehavior = Enum.ZIndexBehavior.Global
+ScreenGui.Parent = Player:WaitForChild("PlayerGui")
+
+-- MAIN LOADER
+local Frame = Instance.new("Frame", ScreenGui)
+Frame.AnchorPoint = Vector2.new(0.5, 0.5)
+Frame.Position = UDim2.new(0.5, 0, 0.5, 0)
+Frame.Size = UDim2.new(0, 450, 0, 200)
+Frame.BackgroundTransparency = 0.25
+Frame.BackgroundColor3 = Color3.fromRGB(180, 0, 30)
+Frame.BorderSizePixel = 0
+Frame.ZIndex = 5
+Instance.new("UICorner", Frame).CornerRadius = UDim.new(0, 12)
+
+local Gradient = Instance.new("UIGradient", Frame)
+Gradient.Color = ColorSequence.new{
+    ColorSequenceKeypoint.new(0, Color3.fromRGB(255, 70, 90)),
+    ColorSequenceKeypoint.new(1, Color3.fromRGB(120, 0, 10))
+}
+Gradient.Rotation = 45
+
+local Shadow = Instance.new("ImageLabel", Frame)
+Shadow.ZIndex = -1
+Shadow.AnchorPoint = Vector2.new(0.5, 0.5)
+Shadow.Position = UDim2.new(0.5, 0, 0.5, 4)
+Shadow.Size = UDim2.new(1, 60, 1, 60)
+Shadow.BackgroundTransparency = 1
+Shadow.Image = "rbxassetid://1316045217"
+Shadow.ImageTransparency = 0.85
+
+local Icon = Instance.new("ImageLabel", Frame)
+Icon.Image = "rbxassetid://134756219800834"
+Icon.Size = UDim2.new(0, 60, 0, 60)
+Icon.Position = UDim2.new(0, 20, 0, 15)
+Icon.BackgroundTransparency = 1
+Icon.ZIndex = 6
+
+local Title = Instance.new("TextLabel", Frame)
+Title.Text = "TikTok: GanKunZ"
+Title.TextColor3 = Color3.new(1, 1, 1)
+Title.TextScaled = true
+Title.Font = Enum.Font.GothamBold
+Title.Position = UDim2.new(0, 100, 0, 15)
+Title.Size = UDim2.new(1, -120, 0, 30)
+Title.BackgroundTransparency = 1
+Title.ZIndex = 6
+
+local Subtitle = Instance.new("TextLabel", Frame)
+Subtitle.Text = "Follow To GanKunZ"
+Subtitle.TextColor3 = Color3.fromRGB(200, 200, 200)
+Subtitle.TextScaled = true
+Subtitle.Font = Enum.Font.Gotham
+Subtitle.Position = UDim2.new(0, 0, 1, -65)
+Subtitle.Size = UDim2.new(1, 0, 0, 25)
+Subtitle.BackgroundTransparency = 1
+Subtitle.ZIndex = 6
+
+local FeatureLabel = Instance.new("TextLabel", Frame)
+FeatureLabel.Text = "Token Multiplier"
+FeatureLabel.TextColor3 = Color3.fromRGB(255, 200, 200)
+FeatureLabel.TextScaled = true
+FeatureLabel.Font = Enum.Font.GothamBold
+FeatureLabel.Position = UDim2.new(0, 0, 1, -40)
+FeatureLabel.Size = UDim2.new(1, 0, 0, 25)
+FeatureLabel.BackgroundTransparency = 1
+FeatureLabel.ZIndex = 6
+
+local BarBackground = Instance.new("Frame", Frame)
+BarBackground.Position = UDim2.new(0.05, 0, 0.58, 0)
+BarBackground.Size = UDim2.new(0.9, 0, 0.1, 0)
+BarBackground.BackgroundColor3 = Color3.new(0.1, 0.1, 0.1)
+BarBackground.BorderSizePixel = 0
+BarBackground.BackgroundTransparency = 0.6
+BarBackground.ClipsDescendants = true
+BarBackground.ZIndex = 6
+
+local ProgressBar = Instance.new("Frame", BarBackground)
+ProgressBar.Size = UDim2.new(0, 0, 1, 0)
+ProgressBar.BackgroundColor3 = Color3.fromRGB(170, 0, 255)
+ProgressBar.BorderSizePixel = 0
+Instance.new("UICorner", ProgressBar).CornerRadius = UDim.new(0, 8)
+ProgressBar.ZIndex = 7
+
+local barStroke = Instance.new("UIStroke", ProgressBar)
+barStroke.Thickness = 2
+barStroke.Color = Color3.fromRGB(255, 100, 255)
+barStroke.Transparency = 0.2
+
+local barGradient = Instance.new("UIGradient", ProgressBar)
+barGradient.Color = ColorSequence.new{
+    ColorSequenceKeypoint.new(0, Color3.fromRGB(255, 0, 255)),
+    ColorSequenceKeypoint.new(1, Color3.fromRGB(170, 0, 255))
+}
+barGradient.Transparency = NumberSequence.new{
+    NumberSequenceKeypoint.new(0, 0.2),
+    NumberSequenceKeypoint.new(1, 0.2)
+}
+
+-- ⏳ 20-SECOND LOADING
+TweenService:Create(ProgressBar, TweenInfo.new(60), {
+    Size = UDim2.new(1, 0, 1, 0)
+}):Play()
+
+task.delay(60, function()
+    Frame:Destroy()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/MakuExploit/TokenMultiLau/refs/heads/main/LuaToken"))()
+end)
