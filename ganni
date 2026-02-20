@@ -73,7 +73,7 @@ local conn = TextButton.MouseButton1Click:Connect(function()
     ScreenGui:Destroy()
 end)
 local conn2 = TextButton3.MouseButton1Click:Connect(function()
-    setclipboard("https://discord.gg/pGRR7uMkr")
+    setclipboard("https://sfl.gl/jfNhp")
     TextButton3.Text = "COPIED!"
     task.wait(2)
     TextButton3.Text = "GET KEY"
