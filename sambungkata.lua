@@ -1,3 +1,4 @@
+
 local fenv = getfenv()
 local env = _G
 local HttpService = game:GetService('HttpService')
@@ -104,7 +105,7 @@ textlabel_722.TextSize = 22
 textlabel_722.Parent = textlabel_722
 local textlabel_966 = Instance.new("TextLabel")
 
-textlabel_966.Text = "GanKunZ"
+textlabel_966.Text = "ZENTAZZ HUB"
 textlabel_966.Size = UDim2.new(0, 90, 1, 0)
 textlabel_966.Position = UDim2.new(0, 38, 0, 0)
 textlabel_966.BackgroundTransparency = 1
@@ -115,7 +116,7 @@ textlabel_966.TextXAlignment = Enum.TextXAlignment.Left
 textlabel_966.Parent = textlabel_966
 local textlabel_484 = Instance.new("TextLabel")
 
-textlabel_484.Text = "https://discord.gg/udnpCTAk2"
+textlabel_484.Text = "https://discord.gg/BtJmxTDNHZ"
 textlabel_484.Size = UDim2.new(0, 100, 0, 14)
 textlabel_484.Position = UDim2.new(0, 48, 0, 28)
 textlabel_484.BackgroundTransparency = 1
@@ -459,6 +460,6 @@ textlabel_759.TextColor3 = Color3.fromRGB(255, 255, 255)
 frame_551.Size = UDim2.new(0, 0, 0, 0)
 local v359 = TweenService:Create(TweenService, {}, TweenInfo.new(0.5, Enum.EasingStyle.Back), {
     Size = UDim2.new(0, 260, 0, 380)
-        })
+})
 local v360 = v359:Play()
-print("🚀 GanKunZ V3.2 -  (MULTI HURUF)!")
+print("🚀 ZENTAZZ HUB V3.2 -  (MULTI HURUF)!")
