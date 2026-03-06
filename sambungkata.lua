@@ -14,7 +14,9 @@ local v13 = v11:FindFirstChild("SubmitWord")
 local v14 = v11:FindFirstChild("BillboardUpdate")
 local v15 = v11:FindFirstChild("UsedWordWarn")
 local v16 = v10:FindFirstChild("ZENTAZZ_Hub_Detector")
-v16:Destroy()
+if v16 then 
+    v16:Destroy() 
+end
 local screengui_882 = Instance.new("ScreenGui")
 
 screengui_882.Name = "ZENTAZZ_Hub_Detector"
