@@ -459,8 +459,8 @@ frame_815.BackgroundColor3 = Color3.fromRGB(35, 35, 45)
 frame_737.BackgroundColor3 = Color3.fromRGB(120, 80, 255)
 textlabel_759.TextColor3 = Color3.fromRGB(255, 255, 255)
 frame_551.Size = UDim2.new(0, 0, 0, 0)
-local v359 = TweenService:Create(TweenService, {}, TweenInfo.new(0.5, Enum.EasingStyle.Back), {
+local v359 = TweenService:Create(frame_551, TweenInfo.new(0.5, Enum.EasingStyle.Back), {
     Size = UDim2.new(0, 260, 0, 380)
 })
-local v360 = v359:Play()
-print("🚀 ZENTAZZ HUB V3.2 -  (MULTI HURUF)!")
+v359:Play()
+print("ZENTAZZ HUB V3.2 - Berhasil Load!")
