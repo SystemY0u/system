@@ -3538,7 +3538,7 @@ end)
 local Window = Library:CreateWindow({
     Title = "GanKunZ Hub",
     Footer = 'Full Features | by GanKunZ | Join WA Channel for Updates',
-    Icon = "rbxassetid://1462874790",
+    Icon = "96848424314690",
     IconSize = UDim2.fromOffset(50, 50),
     NotifySide = "Right",
     EnableSidebarResize = true,
