@@ -1,7 +1,7 @@
 -- ==============================================
---     GANKUNZ HUB - FULL FEATURES v3.1
+--     GANKUNZ HUB - FULL FEATURES
 --     Created by: GanKunZ
---     Enhanced with Fallens Features
+--     Version: 3.0
 --     No Key Required - Free to Use
 -- ==============================================
 
