@@ -3165,7 +3165,7 @@ end)
 local Window = Library:CreateWindow({
     Title = "GanKunZ Hub",
     Footer = 'Full Features | by GanKunZ',
-    Icon = "96848424314690",
+    Icon = "1462874790",
     IconSize = UDim2.fromOffset(50, 50),
     NotifySide = "Right",
     EnableSidebarResize = true,
